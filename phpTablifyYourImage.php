@@ -1,11 +1,20 @@
 <?php
     function tablifyYourImage() {
-        $im = imagecreatefromjpeg("iametza.jpg");
+        
+        $file = "iametza.jpg";
+        
+        // Get the width, height and type of the image.
+        list($width, $height, $image_type) = getimagesize($file);
+        
+        $im = imagecreatefromjpeg($file);
         $rgb = imagecolorat($im, 10, 15);
         $r = ($rgb >> 16) & 0xFF;
         $g = ($rgb >> 8) & 0xFF;
         $b = $rgb & 0xFF;
         
+        var_dump($width);
+        var_dump($height);
+        var_dump($image_type);
         var_dump($im);
         var_dump($rgb);
         var_dump($r);
