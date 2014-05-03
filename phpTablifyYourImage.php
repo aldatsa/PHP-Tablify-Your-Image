@@ -4,7 +4,20 @@
         // Get the width, height and type of the image.
         list($width, $height, $image_type) = getimagesize($file);
         
-        $im = imagecreatefromjpeg($file);
+        switch ($image_type) {
+            case 1:
+                $im = imagecreatefromgif($file);
+                break;
+            case 2:
+                $im = imagecreatefromjpeg($file);
+                break;
+            case 3:
+                $im = imagecreatefrompng($file);
+                break;
+            default:
+                return '';
+                break;
+        }
         
         // Create the table.
         $table = '<table cellspacing="0" cellpadding="0" border="0" style="margin-left: auto; margin-right: auto; font-size:0px;">';
