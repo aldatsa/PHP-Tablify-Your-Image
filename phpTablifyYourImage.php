@@ -18,6 +18,12 @@
         var_dump($r);
         var_dump($g);
         var_dump($b);
+        
+        for ($x = 0; $x < $width; $x++) {
+            for ($y = 0; $y < $height; $y++) {
+                var_dump(imagecolorat($im, $x, $y));
+            }
+        }
     }
     
     tablifyYourImage("iametza.jpg");
