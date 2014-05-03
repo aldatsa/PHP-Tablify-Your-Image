@@ -1,7 +1,5 @@
 <?php
-    function tablifyYourImage() {
-        
-        $file = "iametza.jpg";
+    function tablifyYourImage($file) {
         
         // Get the width, height and type of the image.
         list($width, $height, $image_type) = getimagesize($file);
@@ -22,5 +20,5 @@
         var_dump($b);
     }
     
-    tablifyYourImage();
+    tablifyYourImage("iametza.jpg");
 ?>
