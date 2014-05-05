@@ -1,5 +1,5 @@
 <?php
-    function tablifyYourImage($file, $cell_width = 1, $cell_height = 1) {
+    function tablifyYourImage($file, $cell_width = 1, $cell_height = 1, $id="") {
         
         // Get the width, height and type of the image.
         list($width, $height, $image_type) = getimagesize($file);
@@ -20,7 +20,10 @@
         }
         
         // Create the table.
-        $table = '<table cellspacing="0" cellpadding="0" border="0" style="margin-left: auto; margin-right: auto; font-size:0px;">';
+        if ($id != "") {
+            $id = "id=" . $id . " ";
+        }
+        $table = '<table ' . $id . 'cellspacing="0" cellpadding="0" border="0" style="margin-left: auto; margin-right: auto; font-size:0px;">';
         
         // Create the body of the table.
         $table = $table . '<tbody>';
@@ -59,4 +62,5 @@
     
     echo tablifyYourImage("iametza.jpg");
     echo tablifyYourImage("iametza.jpg", 5, 5);
+    echo tablifyYourImage("iametza.jpg", 3, 3, "test");
 ?>
