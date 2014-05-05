@@ -1,5 +1,5 @@
 <?php
-    function tablifyYourImage($file) {
+    function tablifyYourImage($file, $cell_width = 1, $cell_height = 1) {
         
         // Get the width, height and type of the image.
         list($width, $height, $image_type) = getimagesize($file);
@@ -39,7 +39,7 @@
                 $g = ($rgb >> 8) & 0xFF;
                 $b = $rgb & 0xFF;
                 
-                $table = $table . '<td width="1" height="1" colspan="1" style="background-color: rgb(' . $r . ', ' . $g . ', ' . $b . ');">&nbsp;</td>';
+                $table = $table . '<td width="' . $cell_width . '" height="'. $cell_height . '" colspan="1" style="background-color: rgb(' . $r . ', ' . $g . ', ' . $b . ');">&nbsp;</td>';
                 
                 // If it is the last column, close the tr tag
                 if ($x == $width - 1) {
@@ -58,4 +58,5 @@
     }
     
     echo tablifyYourImage("iametza.jpg");
+    echo tablifyYourImage("iametza.jpg", 5, 5);
 ?>
