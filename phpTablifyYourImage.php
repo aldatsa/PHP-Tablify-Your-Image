@@ -1,4 +1,19 @@
 <?php
+/**
+ * This file contains a function that converts images into HTML tables.
+ *
+ * @license    http://www.gnu.org/copyleft/gpl.html  GNU General Public License Version 3
+ * @author     Asier Iturralde Sarasola <asier.iturralde@gmail.com>
+ */
+
+    /**
+     * Converts images into HTML tables.
+     * @param string $file      The path to the image file (gif, jpeg or png).
+     * @param int $cell_width   The width of each td (optional, default value: 1px)
+     * @param int $cell_height  The height of each td (optional, default value: 1px)
+     * @param string $id        The id of the table (optional, if not specified the table has no 'id' attribute)
+     * @return string
+     */
     function tablifyYourImage($file, $cell_width = 1, $cell_height = 1, $id="") {
         
         // Get the width, height and type of the image.
